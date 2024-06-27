@@ -23,3 +23,12 @@ cache
 deployments
 .vscode
 /src/types
+
+# Openzeppelin files
+.openzeppelin
+
+# Mac files
+.DS_Store
+
+
+

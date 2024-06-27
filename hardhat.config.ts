@@ -2,6 +2,8 @@ import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
 import "hardhat-deploy";
 import "@typechain/hardhat";
+import "@openzeppelin/hardhat-upgrades";
+
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -55,6 +57,13 @@ const config: HardhatUserConfig = {
             chainId: 31337,
             accounts: TEST_HDWALLET,
             tags: ["hardhat"],
+        },
+        "eth-tenderly": {
+            url: process.env.ETH_TENDERLY_URL!,
+            chainId: 1,
+            accounts,
+            live: true,
+            tags: ["eth-tenderly"],
         },
         "sapphire-testnet": {
             url: "https://testnet.sapphire.oasis.dev",

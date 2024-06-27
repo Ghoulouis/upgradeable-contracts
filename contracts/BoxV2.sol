@@ -1,10 +1,13 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.24;
 
-contract Box {
+contract BoxV2 {
     uint256 public box;
 
-    function init(uint _box) public {
+    // Emitted when the stored value changes
+    event ValueChanged(uint256 newValue);
+
+    function initializer(uint _box) public {
         box = _box;
     }
 
@@ -14,5 +17,10 @@ contract Box {
 
     function setBox(uint256 _box) public {
         box = _box;
+    }
+
+    function increment() public {
+        box = box + 1;
+        emit ValueChanged(box);
     }
 }

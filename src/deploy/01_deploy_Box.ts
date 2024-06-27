@@ -15,6 +15,7 @@ const deploy: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
                     args: [10],
                 },
             },
+            //  proxyContract: ,
         },
         args: [],
         log: true,
@@ -22,5 +23,5 @@ const deploy: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
     });
 };
 
-deploy.tags = ["hardhat", "sapphire-testnet"];
+deploy.tags = ["hardhat", "sapphire-testnet", "eth-tenderly"];
 export default deploy;

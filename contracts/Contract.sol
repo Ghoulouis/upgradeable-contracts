@@ -12,11 +12,11 @@ contract A is Ownable {
         sender = msg.sender;
     }
 
-    function getBox() public view onlyOwner returns (uint256) {
+    function getBox() public view returns (uint256) {
         return box;
     }
 
-    function setBox(uint256 _box) public {
+    function setBox(uint256 _box) public onlyOwner {
         box = _box;
     }
 }
@@ -30,5 +30,13 @@ contract B {
 
     function getBox() public view returns (uint256) {
         return a.getBox();
+    }
+
+    function setBox(uint256 _box) public {
+        a.setBox(_box);
+    }
+
+    function setGrand(address _owner) public {
+        a.transferOwnership(_owner);
     }
 }
